@@ -5,11 +5,9 @@ import {Container, TextInput, Text} from './styles'
 interface InputProps{
   value: (text:string) => void
   recebendoAlgo?:string;
-  
-  inputTypes?:any;
 }
 
-const Input = ({value, recebendoAlgo, inputTypes}: InputProps) => {
+const Input = ({value, recebendoAlgo, ...rest}: InputProps) => {
   
   const handleChangeText = (text:string) => {
     value(text);
@@ -17,7 +15,7 @@ const Input = ({value, recebendoAlgo, inputTypes}: InputProps) => {
   return (
     <>
     <Container >
-      <TextInput {...inputTypes} onChangeText={handleChangeText} />
+      <TextInput {...rest} onChangeText={handleChangeText} />
     </Container>
     <Text>{recebendoAlgo}</Text>
     </>
